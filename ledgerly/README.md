@@ -132,7 +132,11 @@ up.
 credentials configured. It only submits a training job and downloads the
 resulting model — it never creates a SageMaker endpoint, so there is
 nothing to remember to tear down. See the docstring at the top of
-`02_train_cash_forecast_model.py` for details.
+`02_train_cash_forecast_model.py` for details, and **see
+[AWS_SETUP.md](AWS_SETUP.md) for the full step-by-step AWS console setup**
+(S3 bucket, IAM role/user, credentials, cleanup checklist) — it's not
+optional reading if you've never wired AWS credentials into a Databricks
+Job/App before.
 
 ## Step 6 — Deploy the Databricks App
 
@@ -209,7 +213,8 @@ deployment — Genie itself cannot run outside Databricks.
 | `GENIE_SPACE_ID` | `app.yaml` | which Genie space the chat panel talks to |
 | `LEDGERLY_USE_BEDROCK` | `app.yaml` (optional) | `"true"` to use Bedrock for the risk explanation instead of the templated fallback |
 | `LEDGERLY_USE_SAGEMAKER` | shell env, forecast script only | `"true"` to train via SageMaker instead of local scikit-learn |
-| `AWS_ROLE_ARN`, `LEDGERLY_S3_BUCKET`, `AWS_REGION` | shell env | only needed for the SageMaker path |
+| `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | shell env locally, Databricks secret in the Job/App | AWS credentials — see [AWS_SETUP.md](AWS_SETUP.md), never hardcode these |
+| `AWS_ROLE_ARN`, `LEDGERLY_S3_BUCKET`, `AWS_REGION` | shell env | only needed for the SageMaker path — see [AWS_SETUP.md](AWS_SETUP.md) |
 
 No credentials, account IDs, or ARNs are hardcoded anywhere in this repo —
 every placeholder above is something you fill in yourself.
