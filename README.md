@@ -19,7 +19,8 @@
 
 ## 🏗️ Architecture
 
-![Ledgerly architecture: synthetic data through Unity Catalog Bronze/Silver/Gold into cash forecasting and Genie](docs/images/01-architecture.png)
+<img src="docs/images/01-architecture.png" width="820" alt="Ledgerly architecture: synthetic data through Unity Catalog Bronze/Silver/Gold into cash forecasting and Genie" />
+
 *From synthetic data to AI-powered cash intelligence.*
 
 ## 🔄 Data & AI Flow
@@ -37,21 +38,16 @@
 
 ## 📊 Real Databricks Results
 
-<table>
-<tr><td width="50%">
+<img src="docs/images/02-genie-forecast.png" width="820" alt="Genie forecast response with 90-day chart and confidence bands" />
 
-![Genie forecast response with 90-day chart and confidence bands](docs/images/02-genie-forecast.png)
 *Genie answering a day-30/60/90 forecast question directly from `cash_forecast`.*
 
-</td><td width="50%">
+<img src="docs/images/03-unity-catalog.png" width="820" alt="Unity Catalog showing the 15 bronze/silver/gold tables" />
 
-![Unity Catalog showing the 15 bronze/silver/gold tables](docs/images/03-unity-catalog.png)
 *The Bronze → Silver → Gold pipeline as it actually lands in Unity Catalog — 15 tables.*
 
-</td></tr>
-</table>
+<img src="docs/images/04-genie-chat.png" width="820" alt="Genie space with suggested business questions" />
 
-![Genie space with suggested business questions](docs/images/04-genie-chat.png)
 *The Genie space, ready for open-ended questions about cash, customers, and inventory.*
 
 ## 🚀 Key Highlights
