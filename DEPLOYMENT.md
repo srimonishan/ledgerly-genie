@@ -42,7 +42,8 @@ Databricks App.
 ## Step 1 — Generate the synthetic data (local)
 
 ```bash
-cd ledgerly
+git clone https://github.com/srimonishan/ledgerly-genie.git
+cd ledgerly-genie
 python3 -m venv .venv && source .venv/bin/activate
 pip install pandas numpy
 python3 generate_data.py
@@ -144,7 +145,7 @@ Job/App before.
    **SQL Warehouses** → your warehouse → **Connection details** →
    **Warehouse ID**. Replace `REPLACE_WITH_GENIE_SPACE_ID` with the Genie
    space ID from Step 4.
-2. Sync this whole `ledgerly/` folder into your workspace:
+2. Sync this whole repo folder into your workspace:
    ```bash
    databricks sync . /Workspace/Users/<your-workspace-username>/ledgerly
    ```
