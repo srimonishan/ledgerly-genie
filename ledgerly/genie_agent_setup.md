@@ -89,11 +89,17 @@ depends on, not a stylistic preference.
   when the owner asks about one specifically.
 
 - "Forecast" / "predicted cash" / "will we have enough cash": the
-  cash_forecast table (predicted_balance, confidence_lower,
+  cash_forecast table (forecast_day, predicted_balance, confidence_lower,
   confidence_upper, risk_flag per future date). This is a MODEL OUTPUT,
   not historical fact — always phrase answers from it as a prediction
   ("projected to be around $X"), never as a certainty, and mention the
   confidence range if the owner asks "how sure are you."
+
+- "30-day forecast" / "60-day forecast" / "90-day forecast" / "day 30" /
+  "day 60" / "day 90": filter cash_forecast on forecast_day = 30, 60, or
+  90 respectively. Always use forecast_day for this, never compute a date
+  offset from forecast_date — forecast_day is the exact, unambiguous
+  checkpoint column built for this.
 
 ## Synonyms to recognize
 
@@ -146,8 +152,11 @@ description fields, if the UI prompts for them per table)
   an estimated runway in days. This is the historical ground truth cash
   position (not a prediction).
 - **cash_forecast**: One row per future date (30/60/90-day horizon):
-  `predicted_balance` plus a `confidence_lower`/`confidence_upper` band
-  and a `risk_flag`. Produced by a trained model, not observed fact.
+  `forecast_day` (an explicit integer, 1-90, counting days out from the
+  most recent historical date — use this column, not date arithmetic on
+  `forecast_date`, for any "day 30/60/90" style question), plus
+  `predicted_balance`, a `confidence_lower`/`confidence_upper` band, and
+  a `risk_flag`. Produced by a trained model, not observed fact.
 
 ---
 
@@ -198,10 +207,18 @@ LIMIT 10;
 
 **6. Forecasted cash risk over the next 90 days**
 ```sql
-SELECT forecast_date, predicted_balance, confidence_lower, confidence_upper, risk_flag
+SELECT forecast_date, forecast_day, predicted_balance, confidence_lower, confidence_upper, risk_flag
 FROM workspace.ledgerly.cash_forecast
 WHERE tenant_id = 'demo_business_001'
-ORDER BY forecast_date ASC;
+ORDER BY forecast_day ASC;
+```
+
+**6a. Day 30 / 60 / 90 checkpoint forecast**
+```sql
+SELECT forecast_date, forecast_day, predicted_balance, confidence_lower, confidence_upper, risk_flag
+FROM workspace.ledgerly.cash_forecast
+WHERE tenant_id = 'demo_business_001' AND forecast_day IN (30, 60, 90)
+ORDER BY forecast_day ASC;
 ```
 
 **7. Best-selling products by revenue**

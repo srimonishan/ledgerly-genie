@@ -356,6 +356,13 @@ def main():
     print(f"  Day 90 predicted balance: ${forecast_df.iloc[89]['predicted_balance']:,.2f}")
     print(f"  Days flagged at-risk: {at_risk_days} / {FORECAST_HORIZON_DAYS}")
 
+    # Explicit forecast day number (1..horizon) — Genie was unreliable at
+    # deriving "day 30/60/90" from forecast_date alone (it requires computing
+    # a date offset from "today" mid-query); an explicit integer column lets
+    # it just filter WHERE forecast_day = 30.
+    forecast_df = forecast_df.copy()
+    forecast_df.insert(1, "forecast_day", range(1, len(forecast_df) + 1))
+
     write_forecast(forecast_df)
 
 
