@@ -1,0 +1,45 @@
+# Databricks App config for Ledgerly (Phase 0)
+#
+# IMPORTANT: the exact `resources:` schema for Databricks Apps can differ
+# slightly by workspace/release. The most reliable way to fill this in is:
+#   1. Deploy this app once via the Databricks Apps UI.
+#   2. In the app's "Resources" tab, click "Add resource" → SQL Warehouse,
+#      select your one Free Edition warehouse, permission "Can use".
+#   3. The console will show/generate the exact resource block for your
+#      workspace — you can copy it here to keep app.yaml in sync, but the
+#      console-attached resource is what actually grants access; this file
+#      alone does not.
+#
+# app.py deliberately does NOT rely on any single auto-injected env var name
+# for the warehouse ID — it also reads DATABRICKS_WAREHOUSE_ID directly, so
+# setting that explicitly below (or in the Apps UI "Environment variables"
+# tab) is the most robust path regardless of the resources: schema.
+
+command: ["streamlit", "run", "app.py"]
+
+env:
+  - name: "LEDGERLY_TENANT_ID"
+    value: "demo_business_001"
+  - name: "LEDGERLY_CATALOG"
+    value: "workspace"
+  - name: "LEDGERLY_SCHEMA"
+    value: "ledgerly"
+  # REPLACE with your one Free Edition SQL warehouse's ID (SQL Warehouses ->
+  # your warehouse -> Connection details -> Warehouse ID)
+  - name: "DATABRICKS_WAREHOUSE_ID"
+    value: "REPLACE_WITH_SQL_WAREHOUSE_ID"
+  # REPLACE with the Genie space ID from its URL: .../genie/rooms/<space_id>
+  - name: "GENIE_SPACE_ID"
+    value: "REPLACE_WITH_GENIE_SPACE_ID"
+  # Optional: set to "true" only if you've configured Bedrock access and
+  # want the risk explanation to use it instead of the templated fallback.
+  - name: "LEDGERLY_USE_BEDROCK"
+    value: "false"
+
+# Best-effort resource declaration — confirm/regenerate via the Apps UI as
+# described above before relying on it.
+resources:
+  - name: "sql_warehouse"
+    sql_warehouse:
+      id: "REPLACE_WITH_SQL_WAREHOUSE_ID"
+      permission: "CAN_USE"

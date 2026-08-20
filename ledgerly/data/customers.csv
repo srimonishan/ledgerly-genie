@@ -1,0 +1,12 @@
+tenant_id,customer_id,customer_name,segment,signup_date,payment_terms_days,chronic_late_payer
+demo_business_001,C000,Walk-in Retail,retail,2024-08-20,0,False
+demo_business_001,C001,Riverside Office Park Cafeteria,wholesale,2024-09-03,30,False
+demo_business_001,C002,Maple & Co. Coworking,wholesale,2024-10-15,30,True
+demo_business_001,C003,Oakview Elementary PTA,wholesale,2024-11-01,15,False
+demo_business_001,C004,Sunrise Diner,wholesale,2025-01-10,30,False
+demo_business_001,C005,Third Street Bookshop Cafe,wholesale,2025-02-20,30,True
+demo_business_001,C006,Harbor View Hotel,wholesale,2025-03-05,45,False
+demo_business_001,C007,Downtown Fitness Studio,wholesale,2025-04-12,30,False
+demo_business_001,C008,Green Valley Med Center Cafeteria,wholesale,2025-05-22,30,False
+demo_business_001,C009,Lakeside University Faculty Club,wholesale,2025-06-30,45,False
+demo_business_001,C010,Northgate Bakery Supply Co-op,wholesale,2025-09-02,30,False

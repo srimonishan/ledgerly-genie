@@ -1,0 +1,17 @@
+# Core app
+streamlit>=1.35
+pandas>=2.0
+numpy>=1.24
+
+# Databricks SDK — SQL warehouse queries + Genie conversations
+databricks-sdk>=0.30.0
+
+# Model training (02_train_cash_forecast_model.py, local fallback path)
+scikit-learn>=1.3
+joblib>=1.3
+
+# Optional — only imported when LEDGERLY_USE_SAGEMAKER=true or
+# LEDGERLY_USE_BEDROCK=true. Safe to leave installed; nothing calls AWS
+# unless those env vars are explicitly set.
+boto3>=1.34
+sagemaker>=2.200

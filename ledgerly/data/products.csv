@@ -1,0 +1,21 @@
+tenant_id,product_id,product_name,category,unit_cost,unit_price,current_stock,reorder_point,reorder_quantity
+demo_business_001,P001,Drip Coffee (12oz),Beverages,0.55,3.25,500,100,400
+demo_business_001,P002,Cappuccino (12oz),Beverages,0.8,4.5,400,80,300
+demo_business_001,P003,Latte (12oz),Beverages,0.85,4.75,450,90,350
+demo_business_001,P004,Cold Brew (16oz),Beverages,0.7,4.95,350,70,300
+demo_business_001,P005,Iced Matcha Latte,Beverages,1.1,5.25,200,40,200
+demo_business_001,P006,Hot Chocolate,Beverages,0.6,3.75,150,30,150
+demo_business_001,P007,Croissant,Bakery,0.9,3.5,200,40,200
+demo_business_001,P008,Blueberry Muffin,Bakery,0.75,3.25,200,40,200
+demo_business_001,P009,Banana Bread Slice,Bakery,0.65,3.0,150,30,150
+demo_business_001,P010,Avocado Toast,Bakery,1.8,7.5,120,25,120
+demo_business_001,P011,Breakfast Sandwich,Bakery,1.95,6.95,150,30,150
+demo_business_001,P012,Ceramic Mug - Brew & Bloom,Merchandise,3.2,14.0,120,20,100
+demo_business_001,P013,Reusable Tumbler,Merchandise,4.5,18.0,90,15,80
+demo_business_001,P014,Tote Bag,Merchandise,2.8,12.0,100,20,100
+demo_business_001,P015,Whole Bean Coffee 12oz Retail Bag,Merchandise,4.0,15.0,200,40,200
+demo_business_001,P016,Gift Card $25,Merchandise,0.0,25.0,999999,0,0
+demo_business_001,P017,Wholesale Beans 5lb Bag,Wholesale,14.0,32.0,300,60,300
+demo_business_001,P018,Wholesale Beans 25lb Bag,Wholesale,60.0,135.0,80,15,100
+demo_business_001,P019,Wholesale Syrup Case (6ct),Wholesale,22.0,48.0,60,10,60
+demo_business_001,P020,Wholesale Cup Sleeves (1000ct),Wholesale,18.0,35.0,40,8,40
